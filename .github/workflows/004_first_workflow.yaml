@@ -1,0 +1,23 @@
+name: 04 workflow_dispatch
+
+on:
+  workflow_dispatch:
+    inputs:
+      username:
+        description: 'Username'
+        default: 'Michal'
+        required: true
+        type: string
+      age:
+        description: 'Age'
+        required: true
+        type: string
+
+jobs:
+  echo-username-age:
+    runs-on: windows-latest
+    steps:
+      - name: Echo Username and Age
+        run: |
+          echo "Username: ${{ inputs.username }}"
+          echo "Age: ${{ inputs.age }}"
